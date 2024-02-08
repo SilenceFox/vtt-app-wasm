@@ -1,16 +1,22 @@
 # Overview
+Trying out new tech, not open to PRs! Also learning Rust, so not a fan of the HTML/JS side. **It is what it is**.
 
-**This repo is not intended to be `git cloned`**.
-
-This repo is used by `dx create` when starting new projects. So by running `dx create` you are effectively running this code.
+## Smol Roadmap
+- [ ] A Working UI!
+- [ ] Adding Functionality
+- [ ] Never again touching JS.
 
 # Development
 
 Run the following command in the root of the project to start the Dioxus dev server:
 
-```bash
-dx serve --hot-reload
-```
+dx serve --hot-reload --open
+> Consider adding --port=8080 (or another) if you're not using a random port.
 
 - Open the browser to http://localhost:8080
 
+Translate your HTML files with `dx translate`.
+
+---
+
+Please NeoVim devs fix my identation on html!() and rsx!() macros, its painful.
