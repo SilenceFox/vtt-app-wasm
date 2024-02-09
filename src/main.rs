@@ -14,145 +14,95 @@ fn main() {
 }
 
 fn app(cx: Scope) -> Element {
-    global_css!("
-        body {
-            background: linear-gradient(180deg, #000044, #000000);
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            // flex-direction: deck;
-            align-items: start;
-            justify-content: start;}
-        * { margin: 0; padding: 0; box-sizing: border-box;}
-    ");
-    render! {
-        AppStyle {}
-        Home {}
-    }
-}
-
-
-#[component]
-fn Blog(cx: Scope, id: i32) -> Element {
-    render! {
-        "Blog post {id}"
-    }
+    render! { Home {} }
 }
 
 #[component]
 fn Home(cx: Scope) -> Element {
-    let button = css!("
-            color: darkslategray;
-            border: none;
-            padding: 4px 16px;
-            border-radius: 0px 0px 12px 12px;
-            width: 25%;
-            height: 2em;
-            font-size: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-            
-            background: deepskyblue;
-            transition: background 0.2s ease-out;
-            transition: color 0.2s ease-out;
-            transition: width 0.5s ease;
-
-            &:hover {
-                width: 30%;
-                color: black;
-                background: cyan;
-                cursor: pointer;
-            }
-    ");
-
-    let container2 = css!("
-        background: darkslateblue;
-        display: flex;
-        width: 100vw;
-        gap: 10px;
-        padding: 0 10px;
-    ");
-
-    let wip = css!("
-        color: black;
-        border: none;
-        padding: 4px 16px;
-        border-radius: 0px 0px 12px 12px;
-        width: 25%;
-        font-size: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-        background: orange;
-        transition: background 0.2s ease-out;
-        &:hover {
-            background: red;
-            cursor: not-allowed;
-            color: white;
-        }"
-    );
-
-
     render! {
-    
-        nav {
-            class: "{container2}",
-            button { class: button, "Home" }
-            button { class: button, "Sound" }
-            button { class: wip, "wip" }
-            button { class: wip, "wip" }
+        div { width: "100%", id: "app-window",
+            nav { class: "nav",
+                button { class: "button_done", "Home" }
+                button { class: "button_done", "Sound" }
+                button { class: "wip", "wip" }
+                button { class: "wip", "wip" }
+            }
+            div { width: "100%", max_height: "100%", height: "93vh", id: "main", display: "flex",
+                div { z_index: "50", id: "sidepanel", Sidebar {} }
+                div {
+                    id: "main-window",
+                    width: "100%",
+                    align_self: "left",
+                    margin: "10px 10px 10px -20px",
+                    box_shadow: "0 0 10px rgba(0, 0, 0, 1)",
+                    Overview {}
+                }
+                NotificationBar {}
+            }
         }
-        Overview {}
-
     }
 }
-fn Overview(cx: Scope) -> Element {
-     let container = css!(
-        "
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        gap: 10px;
-        "
-    );
-    let button = css!("
-        background: #202088;
-        color: white;
-        border: none;
-        padding: 4px 16px;
-        border-radius: 0px 12px 12px 0px; 
-        width: 100%;
-        height: 2.5em;
-        font-size: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-        transition: background 0.5s ease;
-        transition: height 0.5s ease-out;
-        &:hover {
-            background: #AA0055;
-            height: 3em;
-        }
-        &:clicked {  //
-            background: #0000FF;
-            height: 2.8em;
-        }
-        " //TODO: Gotta learn this, mainly how Dioxus handles events like toggling a clicked state.
-    );
-        
+#[component]
+fn Sidebar(cx: Scope) -> Element {
     render! {
-        div {
-            display: "flex",
-            align_items: "left",
-            div {
-                class: "{container}",
-                id: "bar",
-                align_self:"center",
-                width: "25%",
-                height: "100%",
-                transition: "height 0.5s ease-out",
-                button { class: button, "Overview", },
-                button { class: button, "Scene", },
-                button { class: button, "Sheet", },
-                button { class: button, "Skills", },
-                button { class: button, "Notes", },
-                div { id:"chat",}
-            }
+        div { class: "sidebar", id: "bar", align_self: "left",
+            // Call on Overview when on Overview button focus
+            button { class: "side_button", "Overview" }
+            button { class: "side_button", "Scene" }
+            button { class: "side_button", "Sheet" }
+            button { class: "side_button", "Skills" }
+            button { class: "side_button", "Notes" }
+            div { id: "chat" }
         }
     }
+}
+
+#[component]
+fn Overview(cx: Scope) -> Element {
+    render! {
+        div {
+            height: "100%",
+            width: "100%",
+            border_radius: "16px",
+            background: "#202080",
+            color: "white",
+            align_self: "left",
+            hr {}
+        }
+    }
+} 
+
+#[component]
+fn NotificationBar(cx: Scope) -> Element {
+    render!(
+        div {
+            background: "#202080",
+            id: "notifications",
+            color: "white",
+            margin: "10px 10px 10px 0px",
+            padding: "0 0 10px 0",
+            border_radius: "0 0 16px 16px",
+            width: "30%",
+            hr{}
+            ol { width: "100%",
+                display: "flex",
+                justify_content: "center",
+                align_items: "center",
+                flex_direction: "column",
+                li{
+                    margin: "5px 0",
+                    "jaguara"
+                },
+                li{
+                    margin: "5px 0",
+                    "jaguara"
+                },
+                li{
+                    margin: "5px 0",
+                    "jaguara"
+                },
+            }
+            hr{}
+        }
+    )
 }
