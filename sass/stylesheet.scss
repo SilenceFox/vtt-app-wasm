@@ -9,6 +9,20 @@ $white:#dfdfe0;
 $orange:#f4a261;
 $pink:#d67ad2;
 
+$darkpink:#7D0053;
+$midpink:#C6007B;
+$lightpink:#FF59A9;
+
+$darkblue:#1F003D;
+$midblue:#5400A8;
+$lightblue:#694ED1;
+
+$neongreen:#81E300;
+
+$background1:#33006E;
+$background2:#180033;
+$darkaccent: #000000;
+
 $comments:#738091;
 
 $bg0: #131a24; 
@@ -26,51 +40,80 @@ $sel0:#2b3b51;
 $sel1:#3c5372; 
 
 $default-padding: 4px 16px;
-$default-border-radius: 0 0 12px 12px;
+$default-margin: 4px;
+$default-border-radius: 0 0 15px 15px;
 
 
 body {
-    background: linear-gradient($bg4, $bg1);
+    background: linear-gradient($background1, $background2);
     height: 100vh;
     width: 100vw;
     display: flex;
-     flex-direction: deck;
+    flex-direction: deck;
     align-items: start;
     justify-content: start;
 }
-* { margin: 0; padding: 0; box-sizing: border-box;}
 
-.button {
-    color: $blue;
-    border: none;
+* {
+    margin: 0;
+    padding: 0;
+    //box-sizing: border-box;
+  }
+
+.nav {
+  display: flex;
+  flex-direction: deck;
+  width: 100%;
+  .button {
+    color: $white;
+    background: $midblue;
     padding: $default-padding;
     border-radius: $default-border-radius;
+    border: none;
+    margin: 0px 4px;
     width: 25%;
     height: 2em;
     font-size: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    background: deepskyblue;
     transition: background 0.2s ease-out;
     transition: color 0.2s ease-out;
     transition: width 0.5s ease;
-    
-    .button_workinprogress {
-        color: $red;
-        background: $orange;
-        &:hover {
-            width: 30%;
-            color: $black;
-            background: $cyan;
-            cursor: invalid;
-        }
-    }
-
     &:hover {
-        width: 30%;
-        color: black;
-        background: cyan;
-        cursor: pointer;
+      width: 30%;
+      color: $darkaccent;
+      background: $lightblue;
+      cursor: pointer;
     }
+    &:focus {
+      width: 30%;
+      color: $white;
+      background: $midpink;
+      cursor: default;
+    }
+  }
+  .wip {
+    color: $darkaccent;
+    background: $orange;
+    padding: $default-padding;
+    border-radius: $default-border-radius;
+    border: none;
+    margin: 0px 4px;
+    width: 25%;
+    height: 2em;
+    font-size: 20px;
+    transition: background 0.2s ease-out;
+    transition: color 0.2s ease-out;
+    transition: width 0.5s ease;
+    &:hover {
+      width: 30%;
+      color: $darkaccent;
+      background: $yellow;
+      cursor: not-allowed;
+    }
+  }
+}
+
+#sidepanel {
+  width: 10rem;
 }
 
 .sidebar {
@@ -78,23 +121,81 @@ body {
   align-content: start;
   flex-direction: column;
   align-self: left;
-  background: $bg1;
-  color: $white;
+  justify-content: left;
   .side_button {
+    z-index: 50;
     color: $white;
-    background: $bg4;
+    background: $midblue;
+    padding: $default-padding;
+    border-radius: 0px 15px 15px 0px;
+    border: none;
+    margin: 4px 0px;
+    width: 100%;
+    height: 2em;
+    font-size: 20px;
+    transition: background 0.2s ease-out;
+    transition: color 0.2s ease-out;
+    transition: width 0.5s ease;
+    &:hover {
+      width: 120%;
+      color: $darkaccent;
+      background: $lightblue;
+      cursor: pointer;
+    }
+    &:focus {
+      width: 120%;
+      color: $white;
+      background: $midpink;
+      cursor: default;
+    }
   }
 }
 
-#main_window {
-  width: 100%;
-  align-self: left;
-  margin: 10px 10px 10px -20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+#notifications {
+  background-color: $midblue;
+  color: $white;
+  padding: $default-padding;
+  border-radius: 15px 0px 0px 15px;
+  margin: 4px 0px;
+  position: absolute;
+  right: 0;
+  top: 10;
+  width: 10%;
+  height: fit-content;
+  transition: background 0.2s ease-out;
+  transition: color 0.2s ease-out;
+  transition: width 0.5s ease;
+  #notification-child {
+    width: 80%;
+    background-color: $lightblue;
+    &:hover {
+      background-color: $lightblue;
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+  #notification-container {
+    display: "flex";
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    transition: all 0.2s ease-out;
+  }
 }
 
-.nav {
-  display: flex;
-  flex-direction: deck;
+#main {
   width: 100%;
+  max-height: 100%;
+  height: 93vh;
+  display: flex;
+  #main_window {
+    background-color: #000000;
+    min-width: 10rem;
+    width: 100%;
+    align-self: left;
+    margin: 10px 10px 10px -20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  }
 }
+
+

@@ -23,17 +23,13 @@ fn Home(cx: Scope) -> Element {
             nav { class: "nav",
                 button { class: "button", "Home" }
                 button { class: "button", "Sound" }
-                button { class: "button_workinprogress", "wip" }
-                button { class: "button_workinprogress", "wip" }
+                button { class: "wip", "wip" }
+                button { class: "wip", "wip" }
             }
-            div { width: "100%", max_height: "100%", height: "93vh", id: "main", display: "flex",
+            div {id: "main",
                 div { z_index: "50", id: "sidepanel", Sidebar {} }
                 div {
                     id: "main-window",
-                    width: "100%",
-                    align_self: "left",
-                    margin: "10px 10px 10px -20px",
-                    box_shadow: "0 0 10px rgba(0, 0, 0, 1)",
                     Overview {}
                 }
                 NotificationBar {}
@@ -67,6 +63,7 @@ fn Overview(cx: Scope) -> Element {
             color: "white",
             align_self: "left",
             hr {}
+            div { "jaguara" }
         }
     }
 } 
@@ -75,33 +72,25 @@ fn Overview(cx: Scope) -> Element {
 fn NotificationBar(cx: Scope) -> Element {
     render!(
         div {
-            background: "#202080",
             id: "notifications",
-            color: "white",
-            margin: "10px 10px 10px 0px",
-            padding: "0 0 10px 0",
-            border_radius: "0 0 16px 16px",
-            width: "30%",
-            hr{}
             ol { width: "100%",
-                display: "flex",
-                justify_content: "center",
-                align_items: "center",
-                flex_direction: "column",
+                id: "notification-container",
                 li{
                     margin: "5px 0",
+                    id: "notification-child",
                     "jaguara"
                 },
                 li{
                     margin: "5px 0",
+                    id: "notification-child",
                     "jaguara"
                 },
                 li{
                     margin: "5px 0",
+                    id: "notification-child",
                     "jaguara"
                 },
             }
-            hr{}
         }
     )
 }
