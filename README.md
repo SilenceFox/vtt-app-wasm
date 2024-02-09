@@ -5,6 +5,7 @@ Trying out new tech, not open to PRs! Also learning Rust, so not a fan of the HT
 - [ ] A Working UI!
 - [ ] Adding Functionality
 - [ ] Never again touching JS.
+- [ ] Include a proper CSS.
 
 # Development
 
@@ -16,6 +17,8 @@ dx serve --hot-reload --open
 - Open the browser to http://localhost:8080
 
 Translate your HTML files with `dx translate`.
+
+> Im using Grass as my SASS compiler.
 
 ---
 

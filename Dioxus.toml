@@ -34,7 +34,7 @@ index_on_404 = true
 
 # CSS style file
 
-style = ["/style.css"]
+style = ["style.css"]
 
 # Javascript code file
 script = []

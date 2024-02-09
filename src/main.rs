@@ -2,7 +2,6 @@
 
 use dioxus::prelude::*;
 use log::LevelFilter;
-use sir::{AppStyle, css, global_css};
 
 fn main() {
     // Init debug
@@ -14,7 +13,7 @@ fn main() {
 }
 
 fn app(cx: Scope) -> Element {
-    render! { Home {} }
+    render! {  Home {}  }
 }
 
 #[component]
@@ -22,10 +21,10 @@ fn Home(cx: Scope) -> Element {
     render! {
         div { width: "100%", id: "app-window",
             nav { class: "nav",
-                button { class: "button_done", "Home" }
-                button { class: "button_done", "Sound" }
-                button { class: "wip", "wip" }
-                button { class: "wip", "wip" }
+                button { class: "button", "Home" }
+                button { class: "button", "Sound" }
+                button { class: "button_workinprogress", "wip" }
+                button { class: "button_workinprogress", "wip" }
             }
             div { width: "100%", max_height: "100%", height: "93vh", id: "main", display: "flex",
                 div { z_index: "50", id: "sidepanel", Sidebar {} }
@@ -45,7 +44,7 @@ fn Home(cx: Scope) -> Element {
 #[component]
 fn Sidebar(cx: Scope) -> Element {
     render! {
-        div { class: "sidebar", id: "bar", align_self: "left",
+        div { class: "sidebar", id: "bar", 
             // Call on Overview when on Overview button focus
             button { class: "side_button", "Overview" }
             button { class: "side_button", "Scene" }
