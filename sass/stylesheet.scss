@@ -46,7 +46,7 @@ $default-border-radius: 0 0 15px 15px;
 body {
   background: linear-gradient($background1, $background2);
   height: 100vh;
-  width: 100vw;
+  width: 99.9vw;
   display: flex;
   flex-direction: deck;
   align-items: start;
@@ -63,7 +63,7 @@ body {
   display: flex;
   flex-direction: deck;
   width: 100%;
-  .button {
+  button {
     color: $white;
     background: $midblue;
     padding: $default-padding;
@@ -116,12 +116,13 @@ body {
 }
 
 .sidebar {
+  margin-top: 6px;
   display: flex;
   align-content: start;
   flex-direction: column;
   align-self: left;
   justify-content: left;
-  .side_button {
+  button {
     z-index: 50;
     color: $white;
     background: $midblue;
@@ -150,37 +151,6 @@ body {
   }
 }
 
-#notifications {
-  background-color: $midblue;
-  color: $white;
-  padding: $default-padding;
-  border-radius: 15px 0px 0px 15px;
-  margin: 4px 0px;
-  position: absolute;
-  right: 0;
-  top: 10;
-  width: 10%;
-  height: fit-content;
-  transition: background 0.2s ease-out;
-  transition: color 0.2s ease-out;
-  transition: width 0.5s ease;
-  #notification-child {
-    width: 80%;
-    background-color: $lightblue;
-    &:hover {
-      background-color: $lightblue;
-      width: 100%;
-      cursor: pointer;
-    }
-  }
-  #notification-container {
-    display: "flex";
-    justify-content: left;
-    align-items: left;
-    flex-direction: column;
-    transition: all 0.2s ease-out;
-  }
-}
 
 #main {
   width: 100%;
@@ -194,5 +164,46 @@ body {
     align-self: left;
     margin: 10px 10px 10px -20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  }
+}
+
+.overview {
+  height: 100%;
+  max-width: 90%;
+  width: 83%;
+  border-radius: 16px;
+  background: #202080;
+  color: white;
+  align-self: left;
+  border-radius: $default-border-radius;
+  margin: 10px;
+  div { 
+    color: white;
+    border: 2px solid;
+  }
+}
+
+.notifications {
+  display: flex;
+  justify-content: center;
+  background-color: $midblue;
+  color: $white;
+  padding: 10px 0 10px 10px;
+  border-radius: 15px 0px 0px 15px;
+  width: 15%;
+  height: fit-content;
+  transition: all 0.2s ease-out;
+  transition: width 0.5s ease;
+  margin-top: 10px;
+  div {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px 0 0 15px;
+    padding: 2px 0 0 2px;
+    background: $lightblue;
+    align-self: flex-end;
+    .title {
+      max-width: 20%;
+    }
   }
 }

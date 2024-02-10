@@ -1,7 +1,7 @@
 body {
-  background: linear-gradient(#33006E, #180033);
+  background: linear-gradient(#33006e, #180033);
   height: 100vh;
-  width: 100vw;
+  width: 99.9vw;
   display: flex;
   flex-direction: deck;
   align-items: start;
@@ -18,9 +18,9 @@ body {
   flex-direction: deck;
   width: 100%;
 }
-.nav .button {
+.nav button {
   color: #dfdfe0;
-  background: #5400A8;
+  background: #5400a8;
   padding: 4px 16px;
   border-radius: 0 0 15px 15px;
   border: none;
@@ -32,16 +32,16 @@ body {
   transition: color 0.2s ease-out;
   transition: width 0.5s ease;
 }
-.nav .button:hover {
+.nav button:hover {
   width: 30%;
   color: #000000;
-  background: #694ED1;
+  background: #694ed1;
   cursor: pointer;
 }
-.nav .button:focus {
+.nav button:focus {
   width: 30%;
   color: #dfdfe0;
-  background: #C6007B;
+  background: #c6007b;
   cursor: default;
 }
 .nav .wip {
@@ -70,16 +70,17 @@ body {
 }
 
 .sidebar {
+  margin-top: 6px;
   display: flex;
   align-content: start;
   flex-direction: column;
   align-self: left;
   justify-content: left;
 }
-.sidebar .side_button {
+.sidebar button {
   z-index: 50;
   color: #dfdfe0;
-  background: #5400A8;
+  background: #5400a8;
   padding: 4px 16px;
   border-radius: 0px 15px 15px 0px;
   border: none;
@@ -91,49 +92,17 @@ body {
   transition: color 0.2s ease-out;
   transition: width 0.5s ease;
 }
-.sidebar .side_button:hover {
+.sidebar button:hover {
   width: 120%;
   color: #000000;
-  background: #694ED1;
+  background: #694ed1;
   cursor: pointer;
 }
-.sidebar .side_button:focus {
+.sidebar button:focus {
   width: 120%;
   color: #dfdfe0;
-  background: #C6007B;
+  background: #c6007b;
   cursor: default;
-}
-
-#notifications {
-  background-color: #5400A8;
-  color: #dfdfe0;
-  padding: 4px 16px;
-  border-radius: 15px 0px 0px 15px;
-  margin: 4px 0px;
-  position: absolute;
-  right: 0;
-  top: 10;
-  width: 10%;
-  height: fit-content;
-  transition: background 0.2s ease-out;
-  transition: color 0.2s ease-out;
-  transition: width 0.5s ease;
-}
-#notifications #notification-child {
-  width: 80%;
-  background-color: #694ED1;
-}
-#notifications #notification-child:hover {
-  background-color: #694ED1;
-  width: 100%;
-  cursor: pointer;
-}
-#notifications #notification-container {
-  display: "flex";
-  justify-content: left;
-  align-items: left;
-  flex-direction: column;
-  transition: all 0.2s ease-out;
 }
 
 #main {
@@ -149,4 +118,45 @@ body {
   align-self: left;
   margin: 10px 10px 10px -20px;
   box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.overview {
+  height: 100%;
+  max-width: 90%;
+  width: 83%;
+  border-radius: 16px;
+  background: #202080;
+  color: white;
+  align-self: left;
+  border-radius: 0 0 15px 15px;
+  margin: 10px;
+}
+.overview div {
+  color: white;
+  border: 2px solid;
+}
+
+.notifications {
+  display: flex;
+  justify-content: center;
+  background-color: #5400a8;
+  color: #dfdfe0;
+  padding: 10px 0 10px 10px;
+  border-radius: 15px 0px 0px 15px;
+  width: 15%;
+  height: fit-content;
+  transition: all 0.2s ease-out;
+  transition: width 0.5s ease;
+  margin-top: 10px;
+}
+.notifications div {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px 0 0 15px;
+  padding: 2px 0 0 2px;
+  background: #694ed1;
+  align-self: flex-end;
+}
+.notifications div .title {
+  max-width: 20%;
 }

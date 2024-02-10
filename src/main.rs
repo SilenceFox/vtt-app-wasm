@@ -21,14 +21,14 @@ fn Home(cx: Scope) -> Element {
     render! {
         div { width: "100%", id: "app-window",
             nav { class: "nav",
-                button { class: "button", "Home" }
-                button { class: "button", "Sound" }
+                button { "Home" }
+                button { "Sound" }
                 button { class: "wip", "wip" }
                 button { class: "wip", "wip" }
             }
             div { id: "main",
-                div { z_index: "50", id: "sidepanel", Sidebar {} }
-                div { id: "main-window", Overview {} }
+                Sidebar {}
+                Overview {}
                 NotificationBar {}
             }
         }
@@ -39,11 +39,11 @@ fn Sidebar(cx: Scope) -> Element {
     render! {
         div { class: "sidebar", id: "bar",
             // Call on Overview when on Overview button focus
-            button { class: "side_button", "Overview" }
-            button { class: "side_button", "Scene" }
-            button { class: "side_button", "Sheet" }
-            button { class: "side_button", "Skills" }
-            button { class: "side_button", "Notes" }
+            button { "Overview" }
+            button { "Scene" }
+            button { "Sheet" }
+            button { "Skills" }
+            button { "Notes" }
             div { id: "chat" }
         }
     }
@@ -52,16 +52,7 @@ fn Sidebar(cx: Scope) -> Element {
 #[component]
 fn Overview(cx: Scope) -> Element {
     render! {
-        div {
-            height: "100%",
-            width: "100%",
-            border_radius: "16px",
-            background: "#202080",
-            color: "white",
-            align_self: "left",
-            hr {}
-            div { "jaguara" }
-        }
+        div { class: "overview", div { "jaguara" } }
     }
 }
 
@@ -75,23 +66,21 @@ fn NotificationBar(cx: Scope) -> Element {
     let message = use_state(cx, || "".to_string());
 
     render!(
-        div { id: "notifications",
-            ol { width: "100%", id: "notification-container",
-                li { margin: "5px 0", id: "notification-child", "jaguara" },
-                NotificationContainer {},
-
+        div { class: "notifications",
+            div { width: "100%",
+                NotificationContainer {}
+                form { input { oninput: move |event| title.set(event.value.clone()), placeholder: "Title" } }
                 form { 
                     input {
-                        oninput: move |event| title.set(event.value.clone()),
-                        placeholder: "Title"
-                    }
+                        oninput: move |messag| message.set(messag.value.clone()),
+                        placeholder: "Message"
+                    } 
                 }
-
-                form {
-                    input{ oninput: move |messag| message.set(messag.value.clone()),
-                        placeholder: "Message"}
+                div {
+                    "{title}"
+                    br {}
+                    "{message}"
                 }
-                li { "{title}", br{} "{message}" }
             }
         }
     )
@@ -103,15 +92,15 @@ fn NotificationContainer(cx: Scope) -> Element {
         title: "Test".to_string(),
         message: "Very much Tested".to_string(),
     };
-    render!( NotificationChild(cx, message_data) {}
+    render!( NotificationChild(cx, message_data), {} )
 
 }
 
 fn NotificationChild(cx: Scope, message: NotificationData) -> Element {
     render!(
-        li { class: "notification-child", id: "id",
-            div { class: "notification-child", id: "title", "{message.title}" }
-            div { class: "notification-child", id: "content", "{message.message}" }
+        div {
+            div { class: "title", "{message.title}" }
+            div { class: "message", "{message.message}" }
         }
     )
 }
