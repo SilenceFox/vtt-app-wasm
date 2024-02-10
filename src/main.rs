@@ -63,7 +63,7 @@ fn Overview(cx: Scope) -> Element {
             div { "jaguara" }
         }
     }
-} 
+}
 
 struct NotificationData {
     title: String,
@@ -79,15 +79,15 @@ fn NotificationBar(cx: Scope) -> Element {
             ol { width: "100%", id: "notification-container",
                 li { margin: "5px 0", id: "notification-child", "jaguara" },
                 NotificationContainer {},
-                form { 
+                form {
                     input {
                         oninput: move |event| title.set(event.value.clone()),
                         placeholder: "Title"
                     }
                 }
-                form { 
+                form {
                     input{ oninput: move |messag| message.set(messag.value.clone()),
-                        placeholder: "Message"  
+                        placeholder: "Message"
                     }}
                 li { "{title}", br{} "{message}" }
             }
@@ -102,7 +102,7 @@ fn NotificationContainer(cx: Scope) -> Element {
         message: "Very much Tested".to_string(),
     };
     render!( NotificationChild(cx, message_data) {}
-)
+    )
 }
 
 fn NotificationChild(cx: Scope, message: NotificationData) -> Element {
