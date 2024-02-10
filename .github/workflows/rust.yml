@@ -1,0 +1,39 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Lint with Cargo
+      run: cargo fmt
+    - name: Install Dioxus CLI
+      run: cargo install dioxus-cli
+    - name: Lint Again but for Dioxus.
+      run: dx fmt
+
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.3
+        with:
+          # I just want to make SASS and markdown pretty.
+          prettier_options: --write **/*.{scss,md}
