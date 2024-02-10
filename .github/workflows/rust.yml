@@ -1,8 +1,4 @@
 name: Rust
-permissions:
-  pull-requests: write
-  issues: write
-  repository-projects: write
 on:
   push:
     branches: [ "master" ]
@@ -11,6 +7,12 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+
+permissions:
+  pull-requests: write
+  repository-projects: write
+  contents: write
+  pages: write
 
 jobs:
 
