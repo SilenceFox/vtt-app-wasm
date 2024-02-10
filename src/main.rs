@@ -103,7 +103,7 @@ fn NotificationContainer(cx: Scope) -> Element {
         title: "Test".to_string(),
         message: "Very much Tested".to_string(),
     };
-    render!( NotificationChild(cx, message_data) {}
+    render!( NotificationChild(cx, message_data) {})
 
 }
 
