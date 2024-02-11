@@ -18,4 +18,5 @@ dioxus-logger = "0.4.1"
 console_error_panic_hook = "0.1.7"
 sir = { version = "0.4.0", features = ["dioxus"] }
 dioxus-signals = "0.4.3"
+dioxus-html-macro = "0.3.0"
 

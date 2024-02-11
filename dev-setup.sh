@@ -27,7 +27,7 @@ dx serve --hot-reload --port 2020 --open &
 while true; do
     cp ./public/style.css ./public/style.css.bak
     echo "style.css was backup to style.css.bak"
-    grass ./sass/* ./public/style.css
+    grass ./sass/index.scss ./public/style.css
     echo "Sass was compiled."
     inotifywait -e modify ./sass/*
     echo ""
