@@ -1,7 +1,6 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use dioxus_html_macro::html;
 use log::LevelFilter;
 
 fn main() {
@@ -100,19 +99,20 @@ fn NotificationContainer(cx: Scope) -> Element {
 fn NotificationChild(cx: Scope, message: NotificationData) -> Element {
     render!(
         div {
-            div { class: "title", "{message.title}" }
-            div { class: "message", "{message.message}" }
+            div{ class: "title", {message.title}}
+            div{ class: "message", {message.message}}
         }
     )
 }
 
 fn ChatContainer(cx: Scope) -> Element {
-    cx.render(html!(
-        <div class="chat-container">
-            <div class="chat-container-inner">
-                <div class="chat-message"></div>
-            </div>
-        </div>
-
-    ))
+    render!(
+        div{
+            class:"chat-container",
+            div{ 
+                class:"chat-container-inner",
+                div{class:"chat-message"}
+            }
+        }
+    )
 }
