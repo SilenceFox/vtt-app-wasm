@@ -26,7 +26,7 @@ fn Home(cx: Scope) -> Element {
                 button { class: "wip", "wip" }
                 button { class: "wip", "wip" }
             }
-            div { id: "main",
+            div { id: "high",
                 Sidebar {}
                 Overview {}
                 NotificationBar {}

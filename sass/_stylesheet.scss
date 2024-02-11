@@ -1,50 +1,9 @@
-$black: #393b44;
-$red: #c94f6d;
-$green: #81b29a;
-$yellow: #dbc074;
-$blue: #719cd6;
-$magenta: #9d79d6;
-$cyan: #63cdcf;
-$white: #dfdfe0;
-$orange: #f4a261;
-$pink: #d67ad2;
-
-$darkpink: #7d0053;
-$midpink: #c6007b;
-$lightpink: #ff59a9;
-
-$darkblue: #1f003d;
-$midblue: #5400a8;
-$lightblue: #694ed1;
-
-$neongreen: #81e300;
-
-$background1: #33006e;
-$background2: #180033;
-$darkaccent: #000000;
-
-$comments: #738091;
-
-$bg0: #131a24;
-$bg1: #192330;
-$bg2: #212e3f;
-$bg3: #29394f;
-$bg4: #39506d;
-
-$fg0: #d6d6d7;
-$fg1: #cdcecf;
-$fg2: #aeafb0;
-$fg3: #71839b;
-
-$sel0: #2b3b51;
-$sel1: #3c5372;
-
 $default-padding: 4px 16px;
 $default-margin: 4px;
 $default-border-radius: 0 0 15px 15px;
 
 body {
-  background: linear-gradient($background1, $background2);
+  background: $bg-dark;
   height: 100vh;
   width: 99.9vw;
   display: flex;
@@ -62,52 +21,46 @@ body {
 .nav {
   display: flex;
   flex-direction: deck;
+  justify-content: center;
+  max-height: 2rem;
   width: 100%;
   button {
-    color: $white;
-    background: $midblue;
-    padding: $default-padding;
+    z-index: 60;
+    padding-top: 0;
     border-radius: $default-border-radius;
-    border: none;
+    color: $fg;
+    background: $bg;
+    border: 4px ridge;
+    border-top: 0;
+    border-color: $hl;
     margin: 0px 4px;
     width: 25%;
-    height: 2em;
-    font-size: 20px;
-    transition: background 0.2s ease-out;
-    transition: color 0.2s ease-out;
-    transition: width 0.5s ease;
+    height: 2rem;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
     &:hover {
-      width: 30%;
-      color: $darkaccent;
-      background: $lightblue;
+      border-color: $hl-light;
+      font-size: 20px;
+      font-weight: 800;
+      height: 3rem;
+      box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
       cursor: pointer;
     }
     &:focus {
+      border: 6px ridge;
+      border-top:0px;
+      font-weight: 900;
+      color: $fg;
+      background: $bg;
+      border-color: $hl-dark;
       width: 30%;
-      color: $white;
-      background: $midpink;
-      cursor: default;
+      box-shadow: 0 0px 4px 8px rgba(26, 102, 255, 0.3);
     }
   }
   .wip {
-    color: $darkaccent;
-    background: $orange;
-    padding: $default-padding;
-    border-radius: $default-border-radius;
-    border: none;
-    margin: 0px 4px;
-    width: 25%;
-    height: 2em;
-    font-size: 20px;
-    transition: background 0.2s ease-out;
-    transition: color 0.2s ease-out;
-    transition: width 0.5s ease;
-    &:hover {
-      width: 30%;
-      color: $darkaccent;
-      background: $yellow;
-      cursor: not-allowed;
-    }
+    @extend button;
   }
 }
 
@@ -123,9 +76,10 @@ body {
   align-self: left;
   justify-content: left;
   button {
+    //Initial state;
+    color: $fg;
+    background: $bg;
     z-index: 50;
-    color: $white;
-    background: $midblue;
     padding: $default-padding;
     border-radius: 0px 15px 15px 0px;
     border: none;
@@ -136,23 +90,25 @@ body {
     transition: background 0.2s ease-out;
     transition: color 0.2s ease-out;
     transition: width 0.5s ease;
+    //add a box shadow to the button
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.2);
     &:hover {
+      color: $fg-light;
+      background: $bg-light;
       width: 120%;
-      color: $darkaccent;
-      background: $lightblue;
       cursor: pointer;
     }
     &:focus {
+      color: $fg-dark;
+      background: $bg-dark;
       width: 120%;
-      color: $white;
-      background: $midpink;
       cursor: default;
     }
   }
 }
 
-#main {
-  width: 100%;
+#high {
+  width: 100vw;
   max-height: 100%;
   height: 93vh;
   display: flex;
@@ -185,8 +141,6 @@ body {
 .notifications {
   display: flex;
   justify-content: center;
-  background-color: $midblue;
-  color: $white;
   padding: 10px 0 10px 10px;
   border-radius: 15px 0px 0px 15px;
   width: 15%;
@@ -199,7 +153,6 @@ body {
     flex-direction: column;
     border-radius: 15px 0 0 15px;
     padding: 2px 0 0 2px;
-    background: $lightblue;
     align-self: flex-end;
     .title {
       max-width: 20%;
