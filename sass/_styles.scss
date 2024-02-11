@@ -39,71 +39,71 @@
 */
 
 #app-window {
-    width: 100vw;
+  width: 100vw;
 }
 
 // Set .nav and the buttons inside it
 .nav {
-    display: flex;
-    flex-direction: deck;
-    width: 100%;
-    button {
-        color: $white;
-        background: $primary;
-        border: none;
-        margin: 0px 4px;
-        border-radius: 0px 0px 15px 15px;
-        width: 25%;
-        height: 2em;
-        font-size: 20px;
-        transition: background 0.2s ease-out;
-        transition: color 0.2s ease-out;
-        transition: width 0.5s ease;
-        &:hover {
-            width: 30%;
-            color: $white;
-            background: $primary-light;
-            cursor: pointer;
-        }
-        &:focus {
-            width: 30%;
-            color: $white;
-            background: $secondary;
-            cursor: default;
-        }
+  display: flex;
+  flex-direction: deck;
+  width: 100%;
+  button {
+    color: $white;
+    background: $primary;
+    border: none;
+    margin: 0px 4px;
+    border-radius: 0px 0px 15px 15px;
+    width: 25%;
+    height: 2em;
+    font-size: 20px;
+    transition: background 0.2s ease-out;
+    transition: color 0.2s ease-out;
+    transition: width 0.5s ease;
+    &:hover {
+      width: 30%;
+      color: $white;
+      background: $primary-light;
+      cursor: pointer;
     }
+    &:focus {
+      width: 30%;
+      color: $white;
+      background: $secondary;
+      cursor: default;
+    }
+  }
 }
 .sidebar {
-    margin-top: 6px;
-    display: flex;
-    align-content: start;
-    flex-direction: column;
-    align-self: left;
-    justify-content: left;
-    button {
-        z-index: 50;
-        color: $white;
-        background: $primary;
-        border-radius: 0px 15px 15px 0px;
-        border: none;
-        margin: 4px 0px;
-        width: 100%;
-        height: 2em;
-        font-size: 20px;
-        transition: background 0.2s ease-out;
-        transition: color 0.2s ease-out;
-        transition: width 0.5s ease;
-        &:hover {
-            width: 120%;
-            color: $white;
-            background: $primary-light;
-            cursor: pointer;
-        }
-        &:focus {
-            width: 120%;
-            color: $white;
-            background: $secondary;
-            cursor: default;
-        }
+  margin-top: 6px;
+  display: flex;
+  align-content: start;
+  flex-direction: column;
+  align-self: left;
+  justify-content: left;
+  button {
+    z-index: 50;
+    color: $white;
+    background: $primary;
+    border-radius: 0px 15px 15px 0px;
+    border: none;
+    margin: 4px 0px;
+    width: 100%;
+    height: 2em;
+    font-size: 20px;
+    transition: background 0.2s ease-out;
+    transition: color 0.2s ease-out;
+    transition: width 0.5s ease;
+    &:hover {
+      width: 120%;
+      color: $white;
+      background: $primary-light;
+      cursor: pointer;
     }
+    &:focus {
+      width: 120%;
+      color: $white;
+      background: $secondary;
+      cursor: default;
+    }
+  }
 }
