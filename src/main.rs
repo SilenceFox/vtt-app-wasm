@@ -52,7 +52,16 @@ fn Sidebar(cx: Scope) -> Element {
 #[component]
 fn Overview(cx: Scope) -> Element {
     render! {
-        div { class: "overview", div { "jaguara" } }
+        div { class: "overview",
+            div { "jaguara" }
+            div { "jaguara" }
+            div { "jaguara" }
+            div { "jaguara" }
+            div { "jaguara" }
+            div { "jaguara" }
+            div { "jaguara" }
+            div { "jaguara" }
+        }
     }
 }
 
