@@ -69,47 +69,37 @@ struct NotificationData {
     title: String,
     message: String,
 }
+impl NotificationData {
+    pub fn new(title: &str, message: &str) -> NotificationData {
+        let (title, message) = (title.to_string(), message.to_string());
+        NotificationData { title, message }
+    }
+}
 #[component]
 fn NotificationBar(cx: Scope) -> Element {
     let title = use_state(cx, || "".to_string());
     let message = use_state(cx, || "".to_string());
-
+    
     render!(
         div { class: "notifications",
-            div { width: "100%",
-                NotificationContainer {}
-                form { input { oninput: move |event| title.set(event.value.clone()), placeholder: "Title" } }
-                form { 
-                    input {
-                        oninput: move |messag| message.set(messag.value.clone()),
-                        placeholder: "Message"
-                    } 
-                }
-                div {
-                    "{title}"
-                    br {}
-                    "{message}"
-                }
+            Notification(cx, title.as_str(), message.as_str()) {}
+            form { input { oninput: move |event| title.set(event.value.clone()), placeholder: "Title" } }
+            form { 
+                input {
+                    oninput: move |messag| message.set(messag.value.clone()),
+                    placeholder: "Message"
+                } 
             }
         }
     )
 }
 
-fn NotificationContainer(cx: Scope) -> Element {
-    //dinamycally increase the number of notificationsChild inside the container
-    let message_data = NotificationData {
-        title: "Test".to_string(),
-        message: "Very much Tested".to_string(),
-    };
-    render!( NotificationChild(cx, message_data), {} )
-
-}
-
-fn NotificationChild(cx: Scope, message: NotificationData) -> Element {
+fn Notification<'a>(cx: Scope<'a>, title: &'a str, message: &'a str) -> Element<'a> {
+    let notification = NotificationData::new(title, message);
     render!(
-        div {
-            div{ class: "title", {message.title}}
-            div{ class: "message", {message.message}}
+        div {class: "child",
+            div{ class: "title", {notification.title}}
+            div{ class: "message", {notification.message}}
         }
     )
 }

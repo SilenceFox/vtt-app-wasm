@@ -13,50 +13,27 @@ body {
   padding: 0;
 }
 
-.nav {
-  display: flex;
-  flex-direction: deck;
-  justify-content: center;
-  max-height: 2rem;
-  width: 100%;
-}
-.nav button, .nav .wip {
-  z-index: 60;
-  padding-top: 0;
-  border-radius: 0 0 15px 15px;
-  color: #BFC9F4;
-  background: #0b0c10;
-  border: 0;
-  border-bottom: 4px ridge;
-  border-color: #80AAFF;
-  margin: 0px 4px;
-  width: 25%;
-  height: 2rem;
-  font-size: 16px;
-  font-weight: 600;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
-}
-.nav button:hover, .nav .wip:hover {
-  background-color: #16171f;
-  border-color: #b3ccff;
-  font-size: 20px;
-  font-weight: 800;
-  height: 3rem;
-  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-.nav button:focus, .nav .wip:focus {
-  border-bottom: 6px ridge;
-  font-weight: 900;
-  color: #BFC9F4;
-  background: #20222E;
-  border-color: #4d88ff;
-  width: 30%;
-  box-shadow: 0 0px 4px 8px rgba(26, 102, 255, 0.3);
-}
 #sidepanel {
   width: 10rem;
+}
+
+#high {
+  width: 100vw;
+  max-height: 100%;
+  height: 93vh;
+  display: flex;
+}
+#high #main_window {
+  background-color: #000000;
+  min-width: 10rem;
+  width: 100%;
+  align-self: left;
+  margin: 10px 10px 10px -20px;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.test #test {
+  background: pink;
 }
 
 .sidebar {
@@ -68,7 +45,7 @@ body {
   justify-content: left;
 }
 .sidebar button, .sidebar .nav .wip, .nav .sidebar .wip {
-  color: #BFC9F4;
+  color: #bfc9f4;
   background: #0b0c10;
   z-index: 50;
   padding: 4px 16px;
@@ -80,7 +57,7 @@ body {
   border: none;
   border-bottom: 4px ridge;
   border-right: 4px ridge;
-  border-color: #80AAFF;
+  border-color: #80aaff;
   border-right-color: #0b0c10;
   border-top: 0;
   border-left: 0;
@@ -106,21 +83,6 @@ body {
   border-color: #4d88ff;
 }
 
-#high {
-  width: 100vw;
-  max-height: 100%;
-  height: 93vh;
-  display: flex;
-}
-#high #main_window {
-  background-color: #000000;
-  min-width: 10rem;
-  width: 100%;
-  align-self: left;
-  margin: 10px 10px 10px -20px;
-  box-shadow: 0 0 10px rgb(0, 0, 0);
-}
-
 .overview {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
@@ -130,7 +92,7 @@ body {
   max-width: 90%;
   width: 83%;
   border-radius: 16px;
-  background: #20222E;
+  background: #20222e;
   color: white;
   border-radius: 0 0 15px 15px;
   margin: 10px;
@@ -141,22 +103,66 @@ body {
 .overview div {
   margin: 6px;
   font-size: 24px;
-  color: #BFC9F4;
+  color: #bfc9f4;
   background: #0b0c10;
   padding: 10px;
   border-radius: 16px;
   transition: all 0.2s ease-in-out;
   border-bottom: ridge;
-  border-color: #80AAFF;
+  border-color: #80aaff;
   box-shadow: 0px 6px 4px 0px rgba(26, 102, 255, 0.2);
 }
 .overview div:hover {
   background-color: #16171f;
 }
 
-.notifications {
+.nav {
+  display: flex;
+  flex-direction: deck;
+  justify-content: center;
+  max-height: 2rem;
+  width: 100%;
+}
+.nav button, .nav .wip {
+  z-index: 60;
+  padding-top: 0;
+  border-radius: 0 0 15px 15px;
+  color: #bfc9f4;
+  background: #0b0c10;
+  border: 0;
+  border-bottom: 4px ridge;
+  border-color: #80aaff;
+  margin: 0px 4px;
+  width: 25%;
+  height: 2rem;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
+}
+.nav button:hover, .nav .wip:hover {
+  background-color: #16171f;
+  border-color: #b3ccff;
+  font-size: 20px;
+  font-weight: 800;
+  height: 3rem;
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.nav button:focus, .nav .wip:focus {
+  border-bottom: 6px ridge;
+  font-weight: 900;
+  color: #bfc9f4;
+  background: #20222e;
+  border-color: #4d88ff;
+  width: 30%;
+  box-shadow: 0 0px 4px 8px rgba(26, 102, 255, 0.3);
+}
+.notifications, .notifications .child {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
   padding: 10px 0 10px 10px;
   border-radius: 15px 0px 0px 15px;
   width: 15%;
@@ -164,18 +170,20 @@ body {
   transition: all 0.2s ease-out;
   transition: width 0.5s ease;
   margin-top: 10px;
+  border: 3px solid white;
 }
-.notifications div {
-  display: flex;
-  flex-direction: column;
+.notifications .child {
+  flex-basis: 2fr;
   border-radius: 15px 0 0 15px;
   padding: 2px 0 0 2px;
-  align-self: flex-end;
+  align-self: flex-start;
+  color: white;
+  flex: 1;
+  flex-shrink: 1;
 }
-.notifications div .title {
+.notifications .child .title {
   max-width: 20%;
 }
-
-.test #test {
-  background: pink;
+.notifications .child .message {
+  font-size: 12px;
 }

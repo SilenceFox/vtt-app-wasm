@@ -1,0 +1,48 @@
+.sidebar {
+  margin-top: 6px;
+  display: flex;
+  align-content: start;
+  flex-direction: column;
+  align-self: left;
+  justify-content: left;
+  button {
+    //Initial state;
+    color: $fg;
+    background: $bg-dark;
+    z-index: 50;
+    padding: $default-padding;
+    border-radius: 0px 15px 15px 0px;
+    margin: 4px 0px;
+    width: 100%;
+    height: 2em;
+    font-size: 20px;
+    border: none;
+    border-bottom: 4px ridge;
+    border-right: 4px ridge;
+    border-color: $hl;
+    border-right-color: $bg-dark;
+    border-top: 0;
+    border-left: 0;
+    transition: all 0.4s ease-in-out;
+    //add a box shadow to the button
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.2);
+    &:hover {
+      color: $fg-light;
+      background-color: darken($bg, 5%);
+      width: 120%;
+      cursor: pointer;
+      border-color: $hl-light;
+    }
+    &:focus {
+      color: $fg-light;
+      background: $bg-dark;
+      width: 110%;
+      cursor: default;
+      border-bottom: 4px ridge;
+      border-right: 4px ridge;
+      border-top: 0;
+      border-left: 0;
+      border-color: $hl-dark;
+    }
+  }
+}
