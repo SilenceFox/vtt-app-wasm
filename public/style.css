@@ -32,6 +32,104 @@ body {
   box-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
+/* NOTE: BOX USAGE
+         button {class: "box", "Default" }
+         button {class: "box top", "Top" }
+         button {class: "box left", "Left" }
+         button {class: "box right", "Right" }
+         button {class: "box bottom", "Bottom" }
+*/
+.box {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px;
+  padding: 4px 12px;
+  min-width: 8rem;
+  background-color: #101625;
+  border: 2px solid #bfd0f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 58, 180, 0.7);
+  transition: all 0.2s ease-in-out;
+}
+.box:hover {
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 58, 180, 0.7);
+}
+.box:focus {
+  font-weight: 600;
+  background-color: #bfd0f4;
+  color: #101625;
+}
+
+.right {
+  border-right: 0;
+  border-radius: 10px 0px 0px 10px;
+  align-self: right;
+  margin-right: 0;
+}
+
+.left {
+  border-left: 0;
+  border-radius: 0px 10px 10px 0px;
+  align-self: left;
+  margin-left: 0;
+}
+
+.top {
+  border-top: 0;
+  border-radius: 0px 0px 10px 10px;
+  align-self: top;
+  margin-top: 0;
+}
+
+.bottom {
+  border-bottom: 0;
+  border-radius: 10px 10px 0px 0px;
+  align-self: bottom;
+  margin-bottom: 0;
+}
+
+.test1 {
+  background-color: #bfd0f4;
+  color: #000;
+}
+.test1:hover {
+  background-color: #6890e5;
+  color: #000;
+}
+.test1:focus {
+  background-color: white;
+  color: #000;
+}
+
+.test2 {
+  background-color: #003ab4;
+  color: #fff;
+}
+.test2:hover {
+  background-color: #00194e;
+  color: #000;
+}
+.test2:focus {
+  background-color: #1b64ff;
+  color: #000;
+}
+
+.test3 {
+  background-color: #101625;
+  color: #fff;
+}
+.test3:hover {
+  background-color: black;
+  color: #fff;
+}
+.test3:focus {
+  background-color: #2e426c;
+  color: #fff;
+}
+
 .test #test {
   background: pink;
 }

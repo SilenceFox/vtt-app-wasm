@@ -36,3 +36,126 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   }
 }
+
+// From here, it's Ref's code. If you delete this, I'll be sad.
+
+/* NOTE: BOX USAGE
+         button {class: "box", "Default" }
+         button {class: "box top", "Top" }
+         button {class: "box left", "Left" }
+         button {class: "box right", "Right" }
+         button {class: "box bottom", "Bottom" }
+*/
+
+.box {
+  // Text
+  color: $primary-light;
+  font-size: 16px;
+  font-weight: 500;
+  // Size
+  margin: 10px;
+  padding: 4px 12px;
+  min-width: 8rem;
+  // Colors
+  background-color: $tertiary;
+  // Border
+  border: 2px solid $primary;
+  border-radius: 10px;
+  box-shadow: 0 0 10px $secondary-transparent;
+  // States
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: $white;
+    cursor: pointer;
+    box-shadow: 0 0 15px $secondary-transparent;
+  }
+  &:focus {
+    font-weight: 600;
+    background-color: $primary;
+    color: $tertiary;
+  }
+}
+
+.right {
+  border-right: 0;
+  border-radius: 10px 0px 0px 10px;
+  align-self: right;
+  // Write the code to align it to the right side below
+  margin-right: 0;
+  // Probably make the size bigger to the opposite side when focused
+
+}
+
+.left {
+  border-left: 0;
+  border-radius: 0px 10px 10px 0px;
+  align-self: left;
+  // Write the code to align it to the left side below
+  margin-left: 0;
+  // Probably make the size bigger to the opposite side when focused
+  
+}
+
+.top {
+  border-top: 0;
+  border-radius: 0px 0px 10px 10px;
+  align-self: top;
+  // Write the code to align it to the top below
+  margin-top: 0;
+  // Probably make the size bigger to the opposite side when focused
+  
+}
+
+.bottom {
+  border-bottom: 0;
+  border-radius: 10px 10px 0px 0px;
+  align-self: bottom;
+  // Write the code to align it to the bottom below
+  margin-bottom: 0;
+  // Probably make the size bigger to the opposite side when focused
+  
+}
+
+// Debugging the colors. Don't need this at the final version.
+.test1 {
+  background-color: $primary;
+  color: $black;
+
+  &:hover {
+    background-color: $primary-dark;
+    color: $black;
+  }
+
+  &:focus {
+    background-color: $primary-light;
+    color: $black;
+  }
+}
+
+.test2 {
+  background-color: $secondary;
+  color: $white;
+  &:hover {
+    background-color: $secondary-dark;
+    color: $black;
+  }
+
+  &:focus {
+    background-color: $secondary-light;
+    color: $black;
+  }
+}
+
+.test3 {
+  background-color: $tertiary;
+  color: $white;
+  &:hover {
+    background-color: $tertiary-dark;
+    color: $white;
+  }
+
+  &:focus {
+    background-color: $tertiary-light;
+    color: $white;
+  }
+}

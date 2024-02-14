@@ -21,5 +21,33 @@ $inactive-light: lighten($inactive, 10%);
 $active-dark: darken($active, 10%);
 $active-light: lighten($active, 10%);
 
-// Debugging
-@debug $hl-dark;
+// From here, it's Ref's code. If you delete this, I'll be sad.
+
+// NOTE: Primary will be the only one that can be changed
+//       by the theme so we keep a good palette.
+$primary: #bfd0f4;
+$primary-light: lighten($primary, 20%);
+$primary-dark: darken($primary, 20%);
+$primary-text: darken($primary, 60%);
+$primary-transparent: rgba($primary, 0.7);
+
+// FIX: Probably need to change the dark and light logic
+//      to have control of the saturation too.
+$secondary: darken(saturate($primary, 80%), 50%);
+$secondary-light: lighten($secondary, 20%);
+$secondary-dark: darken($secondary, 20%);
+$secondary-text: darken($secondary, 60%);
+$secondary-transparent: rgba($secondary, 0.7);
+
+// FIX: Probably need to change the dark and light logic
+//      to have control of the saturation too.
+$tertiary: darken(desaturate($secondary, 60%), 25%);
+$tertiary-light: lighten($tertiary, 20%);
+$tertiary-dark: darken($tertiary, 20%);
+$tertiary-text: lighten($tertiary, 60%);
+$tertiary-transparent: rgba($tertiary, 0.7);
+
+// REVIEW: Probably need a logic to have either black or white text
+//         depending on the color of the background?
+$white: #fff;
+$black: #000;
