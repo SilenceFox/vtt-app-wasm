@@ -6,7 +6,7 @@
   border-radius: 15px;
   width: 10%; // Adjust the width as needed
   margin-top: 10px;
-  max-width:10%;
+  max-width: 10%;
   direction: rtl;
 
   .child {
@@ -24,7 +24,7 @@
     background: $bg;
     border-radius: 15px;
     &:hover {
-      overflow:visible;
+      overflow: visible;
     }
 
     .title {
@@ -36,7 +36,7 @@
     }
   }
   form {
-    input{
+    input {
       background: $bg;
       background-color: $bg;
       color: $hl;
