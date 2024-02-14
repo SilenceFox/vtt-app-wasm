@@ -29,7 +29,7 @@ while true; do
     echo "style.css was backup to style.css.bak"
     grass ./sass/index.scss ./public/style.css
     echo "Sass was compiled."
-    inotifywait -e modify ./sass/*
+inotifywait -e modify ./sass/*
     echo ""
     echo "File was modified. Sass will be recompiled."
     echo ""

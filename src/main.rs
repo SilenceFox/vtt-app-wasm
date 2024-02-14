@@ -53,57 +53,57 @@ fn Sidebar(cx: Scope) -> Element {
 fn Overview(cx: Scope) -> Element {
     render! {
         div { class: "overview",
-            div { "jaguara" }
-            div { "jaguara" }
-            div { "jaguara" }
-            div { "jaguara" }
-            div { "jaguara" }
-            div { "jaguara" }
-            div { "jaguara" }
-            div { "jaguara" }
+            div { "jaguara" },
+            div { "jaguara" },
+            div { "jaguara" },
+            div { "jaguara" },
+            div { "jaguara" },
+            div { "jaguara" },
+            div { "jaguara" },
+            div { "jaguara" },
         }
     }
 }
 
+#[derive(Debug, Clone, PartialEq, Props)]
 struct NotificationData {
+    id: u32,
     title: String,
     message: String,
 }
-impl NotificationData {
-    pub fn new(title: &str, message: &str) -> NotificationData {
-        let (title, message) = (title.to_string(), message.to_string());
-        NotificationData { title, message }
-    }
-}
+
 #[component]
 fn NotificationBar(cx: Scope) -> Element {
-    let title = use_state(cx, || "".to_string());
-    let message = use_state(cx, || "".to_string());
+    let title = use_state(cx, || "Burro".to_string());
+    let message = use_state(cx, || "Nesse exato momento esse texto deve dar overflow.".to_string());
+    let counter = use_state(cx, || 0);
     
     render!(
         div { class: "notifications",
-            Notification(cx, title.as_str(), message.as_str()) {}
-            form { input { oninput: move |event| title.set(event.value.clone()), placeholder: "Title" } }
-            form { 
-                input {
-                    oninput: move |messag| message.set(messag.value.clone()),
-                    placeholder: "Message"
-                } 
-            }
+            button { onclick: move |_| counter.set(counter.saturating_add(1)), "Add" }
+            button { onclick: move |_| counter.set(counter.saturating_sub(1)), "Remove" }
+            // Notification(cx, title.as_str(), message.as_str()) {}
+                for id in 0.. **counter {
+                    Notification { id: id, title: "Message".into(), message: "Nesse exato momento esse texto deve dar overflow.".into() }
+                }
+
+            form { input { oninput: move |event| title.set(event.value.clone()), placeholder: "Title" } },
+            form { input { oninput: move |msg| message.set(msg.value.clone()), placeholder: "Message" } },
         }
     )
 }
 
-fn Notification<'a>(cx: Scope<'a>, title: &'a str, message: &'a str) -> Element<'a> {
-    let notification = NotificationData::new(title, message);
+#[component]
+fn Notification(cx: Scope<NotificationData>) -> Element {
     render!(
-        div {class: "child",
-            div{ class: "title", {notification.title}}
-            div{ class: "message", {notification.message}}
+        div {class: "child", id: "{cx.props.id}",
+            div{ class: "title", {cx.props.title.as_str()}}
+            div{ class: "message", {cx.props.message.as_str()}}
         }
     )
 }
 
+#[component]
 fn ChatContainer(cx: Scope) -> Element {
     render!(
         div{

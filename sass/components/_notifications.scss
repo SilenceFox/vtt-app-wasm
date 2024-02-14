@@ -1,30 +1,47 @@
 .notifications {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   flex-direction: column;
-  padding: 10px 0 10px 10px;
-  border-radius: 15px 0px 0px 15px;
-  width: 15%;
-  height: fit-content;
-  transition: all 0.2s ease-out;
-  transition: width 0.5s ease;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  border-radius: 15px;
+  width: 10%; // Adjust the width as needed
   margin-top: 10px;
-  border: 3px solid white;
+  max-width:10%;
+  direction: rtl;
+
   .child {
-    @extend .notifications;
-    flex-basis: 2fr;
-    border-radius: 15px 0 0 15px;
-    padding: 2px 0 0 2px;
-    align-self: flex-start;
+    margin: 0px;
+    display: flex; // Make .child a flex container
+    flex-direction: column; // Stack items vertically
+    align-items: flex-start; // Align items vertically if needed
+    flex-basis: 5%;
+    width: 90%; // Each child container should take full width
+    padding: 5px;
     color: white;
-    flex: 1;
-    flex-shrink: 1;
-    .title {
-      max-width: 20%;
+    margin-bottom: 10px; // Add margin between child containers
+    overflow: clip;
+    white-space: nowrap;
+    background: $bg;
+    border-radius: 15px;
+    &:hover {
+      overflow:visible;
     }
+
+    .title {
+      font-weight: bold; // Example style for title
+    }
+
     .message {
-      font-size: 12px;
+      font-size: 12px; // Example font size for message
+    }
+  }
+  form {
+    input{
+      background: $bg;
+      background-color: $bg;
+      color: $hl;
+      border: 1px solid $hl-dark;
+      border-radius: 5px;
     }
   }
 }
