@@ -60,7 +60,6 @@ body {
   background-color: $tertiary;
   // Border
   border: 2px solid $primary;
-  border-radius: 10px;
   box-shadow: 0 0 10px $secondary-transparent;
   // States
   transition: all 0.2s ease-in-out;
@@ -76,86 +75,87 @@ body {
   }
 }
 
-.right {
-  border-right: 0;
-  border-radius: 10px 0px 0px 10px;
-  align-self: right;
-  // Write the code to align it to the right side below
-  margin-right: 0;
-  // Probably make the size bigger to the opposite side when focused
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  border-radius: 15px;
 
 }
 
-.left {
-  border-left: 0;
-  border-radius: 0px 10px 10px 0px;
-  align-self: left;
-  // Write the code to align it to the left side below
-  margin-left: 0;
-  // Probably make the size bigger to the opposite side when focused
-  
+.theme {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-basis: 100%;
+  background: linear-gradient(180deg, $secondary, $tertiary);
+  border: 2px dotted blue;
+}
+
+.overlay {
+  z-index: 10;
+}
+
+.box2 {
+  // Sizes
+  margin: 10px;
+  padding: 4px 12px;
+  min-width: 8rem;
+  // Colors
+  background-color: rgba($tertiary-transparent, 0.3);
+  backdrop-filter: blur(3px);
+  // Text
+  color: $primary-light;
+  font-size: 16px;
+  font-weight: 500;
+  // Border
+  border: 2px solid transparent;
+  box-shadow: 0 0 10px $secondary-transparent;
 }
 
 .top {
-  border-top: 0;
-  border-radius: 0px 0px 10px 10px;
-  align-self: top;
-  // Write the code to align it to the top below
   margin-top: 0;
-  // Probably make the size bigger to the opposite side when focused
-  
+  align-self: flex-start;
 }
+
 
 .bottom {
-  border-bottom: 0;
-  border-radius: 10px 10px 0px 0px;
-  align-self: bottom;
-  // Write the code to align it to the bottom below
   margin-bottom: 0;
-  // Probably make the size bigger to the opposite side when focused
-  
+  align-self: flex-end;
 }
 
-// Debugging the colors. Don't need this at the final version.
-.test1 {
-  background-color: $primary;
-  color: $black;
-
-  &:hover {
-    background-color: $primary-dark;
-    color: $black;
-  }
-
-  &:focus {
-    background-color: $primary-light;
-    color: $black;
-  }
+.left {
+  margin-left: 0;
+  margin-right: auto;
 }
 
-.test2 {
-  background-color: $secondary;
-  color: $white;
-  &:hover {
-    background-color: $secondary-dark;
-    color: $black;
-  }
-
-  &:focus {
-    background-color: $secondary-light;
-    color: $black;
-  }
+.right {
+  margin-right: 0;
+  margin-left: auto;
 }
 
-.test3 {
-  background-color: $tertiary;
-  color: $white;
-  &:hover {
-    background-color: $tertiary-dark;
-    color: $white;
-  }
+.centerv {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 
-  &:focus {
-    background-color: $tertiary-light;
-    color: $white;
-  }
+.centerh {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tl {
+  border-top-left-radius: 10px;
+}
+
+.tr {
+  border-top-right-radius: 10px;
+}
+
+.bl {
+  border-bottom-left-radius: 10px;
+}
+
+.br {
+  border-bottom-right-radius: 10px;
 }
